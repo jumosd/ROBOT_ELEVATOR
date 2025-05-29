@@ -19,9 +19,12 @@ app = FastAPI()
 
 @app.post("/el/arrival")
 async def elevator_arrival_event(request: Request):
+    print("엘리베이터 도착 이벤트 수신")
+    logger.info("엘리베이터 도착 이벤트 수신")
     payload = await request.json()
     print(payload)
     logger.info(f"Received payload: {payload}")
+
 
 @app.post("/el/moving")
 async def elevator_moving_event(request:Request):
